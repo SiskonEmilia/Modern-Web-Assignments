@@ -13,7 +13,7 @@ body{
 }
 
 dl{
-  margin-left: 10px;
+  margin: 10px;
   font-family: Arial, sans-serif;
 }
 
@@ -83,6 +83,7 @@ h1{
 
 #page{
   clear:both;
+  padding: 5px;
 }
 
 .contentCol{
