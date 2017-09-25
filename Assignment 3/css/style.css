@@ -26,11 +26,19 @@ body{
 
 .info{
   color: white;
+<<<<<<< HEAD
+=======
+  font-weight: bold;
+>>>>>>> 67cfb037d0fe901549dba23973a72731d5e93f5b
 }
 
 
 .info li{
+<<<<<<< HEAD
   margin-top: 7px;
+=======
+  margin-top: 26px;
+>>>>>>> 67cfb037d0fe901549dba23973a72731d5e93f5b
 }
 
 #bottom-positioner{
@@ -40,6 +48,7 @@ body{
   width: 100%;
 }
 
+<<<<<<< HEAD
 .like, .posted{
   display: inline;
   margin:0 9px;
@@ -62,11 +71,19 @@ body{
   height: 0px;
   width: 0px;
   opacity: 0;
+=======
+#button #info-bar{
+  position: relative;
+  margin:0 auto;
+  height: 200px;
+  width: 200px;
+>>>>>>> 67cfb037d0fe901549dba23973a72731d5e93f5b
   display: flex;
   justify-content: center;
   text-align: center;
   background-color: rgba(126,126,126,1);
   border-radius: 50%;
+<<<<<<< HEAD
   -webkit-transition-property: all;
   -webkit-transition-duration: 0.5s;
   -webkit-transition-timing-function: ease-in-out;
@@ -76,6 +93,22 @@ body{
   height: 200px;
   width: 200px;
   opacity: 1;
+=======
+}
+
+.like, .posted{
+  display: inline;
+  margin:0 9px;
+  line-height: 87px;
+  color: #079E6E;
+  font-size: 20pt;
+}
+
+
+#button:hover #info-bar{
+  height: 200px;
+  width: 200px;
+>>>>>>> 67cfb037d0fe901549dba23973a72731d5e93f5b
 }
 
 #button .apb{
