@@ -4,7 +4,7 @@ html{
 }
 
 body{
-	background-image: url("http://t1.18itu.com/allimg/151230/547/4.jpg");
+	background-image: url("../static/images/bgimage.jpg");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
