@@ -144,7 +144,7 @@ html, body{
 #button:hover li{
   opacity: 1;
   background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-position: center;
 }
 
 #button:hover .mask{
@@ -210,7 +210,7 @@ html, body{
   position: absolute;
   background-color: rgba(154,160,218,1);
   background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-position: center;
   background-image: url("../assets/images/atplus_white.png");
   border-radius: 50%;
   margin: 0 auto;
