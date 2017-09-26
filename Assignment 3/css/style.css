@@ -1,9 +1,4 @@
-html{
-  width: 100%;
-  height: 100%;
-}
-
-body{
+html, body{
   margin: 0;
   width: 100%;
   height: 100%;
@@ -18,9 +13,15 @@ body{
 
 #button{
   height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 /*list common style*/
@@ -36,43 +37,60 @@ body{
   height: 0px;
   width: 0px;
   opacity: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
   background-color: rgba(126,126,126,1);
   border-radius: 50%;
   overflow: hidden;
-  transition-property: all;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-in-out;
   -webkit-transition-property: all;
+  transition-property: all;
   -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
   -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 #button:hover #info-bar{
   height: 200px;
   width: 200px;
   opacity: 1;
-  transform: translateY(-125px) scale(0.8);
+  -webkit-transform: translateY(-125px) scale(0.8);
+          transform: translateY(-125px) scale(0.8);
 }/*hover style*/
 
+/*info table positioner*/
 .info{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   color: white;
 }
 
-.info ul{
-  border-radius: 50%;
-}
-
+/*common style for info*/
 .info img{
-  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
   margin-right: 18px;
 }
 
 .info li{
   margin-top: 7px;
+}
+
+/*specific style for each one*/
+.user{
+  font-size: 18pt;
+}
+
+.comment{
+  font-size: 37pt;
 }
 
 .like, .posted{
@@ -83,35 +101,32 @@ body{
   font-size: 18pt;
 }
 
-.user{
-  font-size: 18pt;
-}
-
-.comment{
-  font-size: 37pt;
-}
-
 /*ring of button*/
 #control-ring{
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #control-ring li{
   position: absolute;
   height: 40px;
   width: 40px;
-  transform: translateY(-32px);
+  -webkit-transform: translateY(-32px);
+          transform: translateY(-32px);
   border-radius: 50%;
   background-color: rgba(102,102,102,1);
   opacity: 0;
-  transition-property: all;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-in-out;
   -webkit-transition-property: all;
+  transition-property: all;
   -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
   -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 
 #button:hover .mask{
@@ -119,19 +134,21 @@ body{
   background-image: url("../assets/images/nomask.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  transform: translate(-75px,-76px);
+  -webkit-transform: translate(-75px,-76px);
+          transform: translate(-75px,-76px);
 }
 
 #button .mask:hover{
   background-image: url("../assets/images/mask.png");
-}
+}/*hover performance for mask only*/
 
 #button:hover .history{
   opacity: 1;
   background-image: url("../assets/images/history.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  transform: translate(-90px,-32px);
+  -webkit-transform: translate(-90px,-32px);
+          transform: translate(-90px,-32px);
 }
 
 #button:hover .message{
@@ -139,7 +156,8 @@ body{
   background-image: url("../assets/images/message.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  transform: translate(-75px, 14px);
+  -webkit-transform: translate(-75px, 14px);
+          transform: translate(-75px, 14px);
 }
 
 .message span{
@@ -149,7 +167,8 @@ body{
   width: 20px;
   height: 20px;
   line-height: 17px;
-  transform: translate(14px, -10px);
+  -webkit-transform: translate(14px, -10px);
+          transform: translate(14px, -10px);
   border-radius: 50%;
   background-color: red;
 }
@@ -159,7 +178,8 @@ body{
   background-image: url("../assets/images/setting.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  transform: translate(-36px, 43px);
+  -webkit-transform: translate(-36px, 43px);
+          transform: translate(-36px, 43px);
 }
 
 #button:hover .sign{
@@ -167,12 +187,13 @@ body{
   background-image: url("../assets/images/signin.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  transform: translate(15px , 49px);
+  -webkit-transform: translate(15px , 49px);
+          transform: translate(15px , 49px);
 }
 
 #button .sign:hover{
   background-image: url("../assets/images/signout.png");
-}
+}/*hover performance for sign only*/
 
 /*At button*/
 #button .apb{
@@ -185,18 +206,19 @@ body{
   margin: 0 auto;
   width: 32px;
   height: 32px;
-  transition-property: all;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-in-out;
   -webkit-transition-property: all;
+          transition-property: all;
   -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
   -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 
 #button:hover .apb{
   height: 100px;
   width: 100px;
-  transform: scale(0.7);
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
   background-color: rgba(48, 63, 159, 1);
   background-image: url("../assets/images/atplus_green.png");
 }
