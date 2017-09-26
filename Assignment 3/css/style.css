@@ -88,7 +88,7 @@ html, body{
   margin-right: 18px;
 }
 
-.info li{
+.page{
   margin-top: 7px;
 }
 
@@ -101,7 +101,7 @@ html, body{
   font-size: 37pt;
 }
 
-.like, .posted{
+.mine{
   display: inline;
   margin:0 9px;
   line-height: 67px;
@@ -121,7 +121,7 @@ html, body{
           justify-content: center;
 }
 
-#control-ring li{
+.button{
   position: absolute;
   height: 40px;
   width: 40px;
@@ -141,7 +141,7 @@ html, body{
           transition-timing-function: ease-in-out;
 }
 
-#button:hover li{
+#button:hover .button{
   opacity: 1;
   background-repeat: no-repeat;
   background-position: center;
@@ -172,7 +172,7 @@ html, body{
           transform: translate(-75px, 14px);
 }
 
-.message span{
+.unread{
   display: inline-block;
   color: white;
   font-size: 10pt;
