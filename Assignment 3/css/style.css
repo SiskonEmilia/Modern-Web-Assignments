@@ -9,9 +9,11 @@ body{
   height: 100%;
 }
 
-#button ul{
-  list-style: none;
-  padding: 0;
+#bottom-positioner{
+  position: fixed;
+  text-align: center;
+  bottom: 10%;
+  width: 100%;
 }
 
 #button{
@@ -21,9 +23,47 @@ body{
   justify-content: center;
 }
 
+/*list common style*/
+#button ul{
+  list-style: none;
+  padding: 0;
+}
+
+/*info circle*/
+#button #info-bar{
+  position: absolute;
+  margin-bottom: 15px;
+  height: 0px;
+  width: 0px;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(126,126,126,1);
+  border-radius: 50%;
+  overflow: hidden;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-in-out;
+}
+#button:hover #info-bar{
+  height: 200px;
+  width: 200px;
+  opacity: 1;
+  transform: translateY(-125px) scale(0.8);
+}/*hover style*/
+
 .info{
   display: flex;
   justify-content: center;
+  color: white;
+}
+
+.info ul{
+  border-radius: 50%;
 }
 
 .info img{
@@ -31,21 +71,9 @@ body{
   margin-right: 18px;
 }
 
-.info{
-  color: white;
-}
-
 .info li{
   margin-top: 7px;
 }
-
-#bottom-positioner{
-  position: fixed;
-  text-align: center;
-  bottom: 10%;
-  width: 100%;
-}
-
 
 .like, .posted{
   display: inline;
@@ -63,6 +91,7 @@ body{
   font-size: 37pt;
 }
 
+/*ring of button*/
 #control-ring{
   position: absolute;
   display: flex;
@@ -137,32 +166,7 @@ body{
   transform: translate(15px , 49px);
 }
 
-#button #info-bar{
-  position: absolute;
-  margin-bottom: 15px;
-  height: 0px;
-  width: 0px;
-  opacity: 0;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  background-color: rgba(126,126,126,1);
-  border-radius: 50%;
-  transition-property: all;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-in-out;
-  -webkit-transition-property: all;
-  -webkit-transition-duration: 0.5s;
-  -webkit-transition-timing-function: ease-in-out;
-}
-
-#button:hover #info-bar{
-  height: 200px;
-  width: 200px;
-  opacity: 1;
-  transform: translateY(-125px) scale(0.8);
-}
-
+/*At button*/
 #button .apb{
   position: absolute;
   background-color: rgba(154,160,218,1);
