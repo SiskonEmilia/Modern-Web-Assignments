@@ -14,9 +14,10 @@ html, body{
 #button{
   height: 200px;
   width: 240px;
-  margin: 0    auto;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
+  display: -moz-flex;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -51,12 +52,16 @@ html, body{
   border-radius: 50%;
   overflow: hidden;
   -webkit-transition-property: all;
+       -o-transition-property: all;
           transition-property: all;
   -webkit-transition-duration: 0.5s;
+       -o-transition-duration: 0.5s;
           transition-duration: 0.5s;
   -webkit-transition-timing-function: ease-in-out;
+       -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
 }
+
 #button:hover #info-bar{
   height: 200px;
   width: 200px;
@@ -111,7 +116,7 @@ html, body{
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
+  -webkit-box-pack: center; 
       -ms-flex-pack: center;
           justify-content: center;
 }
@@ -126,19 +131,26 @@ html, body{
   background-color: rgba(102,102,102,1);
   opacity: 0;
   -webkit-transition-property: all;
+       -o-transition-property: all;
           transition-property: all;
   -webkit-transition-duration: 0.5s;
+       -o-transition-duration: 0.5s;
           transition-duration: 0.5s;
   -webkit-transition-timing-function: ease-in-out;
+       -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
 }
 
-#button:hover .mask{
+#button:hover li{
   opacity: 1;
-  background-image: url("../assets/images/nomask.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
+}
+
+#button:hover .mask{
+  background-image: url("../assets/images/nomask.png");
   -webkit-transform: translate(-75px,-76px);
+       -o-transform: translate(-75px,-76px);
           transform: translate(-75px,-76px);
 }
 
@@ -147,20 +159,16 @@ html, body{
 }/*hover performance for mask only*/
 
 #button:hover .history{
-  opacity: 1;
   background-image: url("../assets/images/history.png");
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
   -webkit-transform: translate(-90px,-32px);
+       -o-transform: translate(-90px,-32px);
           transform: translate(-90px,-32px);
 }
 
 #button:hover .message{
-  opacity: 1;
   background-image: url("../assets/images/message.png");
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
   -webkit-transform: translate(-75px, 14px);
+       -o-transform: translate(-75px, 14px);
           transform: translate(-75px, 14px);
 }
 
@@ -172,26 +180,23 @@ html, body{
   height: 20px;
   line-height: 17px;
   -webkit-transform: translate(14px, -10px);
+       -o-transform: translate(14px, -10px);
           transform: translate(14px, -10px);
   border-radius: 50%;
   background-color: red;
 }
 
 #button:hover .setting{
-  opacity: 1;
   background-image: url("../assets/images/setting.png");
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
   -webkit-transform: translate(-36px, 43px);
+       -o-transform: translate(-36px, 43px);
           transform: translate(-36px, 43px);
 }
 
 #button:hover .sign{
-  opacity: 1;
   background-image: url("../assets/images/signin.png");
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
   -webkit-transform: translate(15px , 49px);
+       -o-transform: translate(15px , 49px);
           transform: translate(15px , 49px);
 }
 
@@ -212,10 +217,13 @@ html, body{
   width: 32px;
   height: 32px;
   -webkit-transition-property: all;
+       -o-transition-property: all;
           transition-property: all;
   -webkit-transition-duration: 0.5s;
+       -o-transition-duration: 0.5s;
           transition-duration: 0.5s;
   -webkit-transition-timing-function: ease-in-out;
+       -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
 }
 
@@ -223,6 +231,7 @@ html, body{
   height: 100px;
   width: 100px;
   -webkit-transform: scale(0.7);
+       -o-transform: scale(0.7);
           transform: scale(0.7);
   background-color: rgba(48, 63, 159, 1);
   background-image: url("../assets/images/atplus_green.png");
