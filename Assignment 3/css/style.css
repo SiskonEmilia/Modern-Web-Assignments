@@ -10,8 +10,15 @@ body{
 }
 
 #button ul{
-  list-style-type: none;  
+  list-style: none;
   padding: 0;
+}
+
+#button{
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .info{
@@ -28,7 +35,6 @@ body{
   color: white;
 }
 
-
 .info li{
   margin-top: 7px;
 }
@@ -39,6 +45,7 @@ body{
   bottom: 10%;
   width: 100%;
 }
+
 
 .like, .posted{
   display: inline;
@@ -56,9 +63,56 @@ body{
   font-size: 37pt;
 }
 
+#control-ring{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+#control-ring li{
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  transform: translateY(-32px);
+  border-radius: 50%;
+  background-color: rgba(126,126,126,1);
+  opacity: 0;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-in-out;
+}
+
+#button:hover .mask{
+  opacity: 1;
+  transform: translate(-80px,-100px);
+}
+
+#button:hover .history{
+  opacity: 1;
+  transform: translate(0,0);
+}
+
+#button:hover .message{
+  opacity: 1;
+  transform: translate(0,0);
+}
+
+#button:hover .setting{
+  opacity: 1;
+  transform: translate(0,0);
+}
+
+#button:hover .sign{
+  opacity: 1;
+  transform: translate(0,0);
+}
+
 #button #info-bar{
-  position: relative;
-  margin:0 auto;
+  position: absolute;
+  margin-bottom: 15px;
   height: 0px;
   width: 0px;
   opacity: 0;
@@ -67,6 +121,9 @@ body{
   text-align: center;
   background-color: rgba(126,126,126,1);
   border-radius: 50%;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
   -webkit-transition-property: all;
   -webkit-transition-duration: 0.5s;
   -webkit-transition-timing-function: ease-in-out;
@@ -76,18 +133,22 @@ body{
   height: 200px;
   width: 200px;
   opacity: 1;
+  transform: translateY(-116px) scale(0.7);
 }
 
 #button .apb{
+  position: absolute;
   background-color: rgba(154,160,218,1);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-image: url("../assets/images/atplus_white.png");
   border-radius: 50%;
-  position: relative;
   margin: 0 auto;
   width: 32px;
   height: 32px;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
   -webkit-transition-property: all;
   -webkit-transition-duration: 0.5s;
   -webkit-transition-timing-function: ease-in-out;
@@ -96,6 +157,7 @@ body{
 #button:hover .apb{
   height: 100px;
   width: 100px;
+  transform: scale(0.7);
   background-color: rgba(48, 63, 159, 1);
   background-image: url("../assets/images/atplus_green.png");
 }
