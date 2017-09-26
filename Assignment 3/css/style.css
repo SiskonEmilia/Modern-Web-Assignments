@@ -122,6 +122,10 @@ body{
   transform: translate(-75px,-76px);
 }
 
+#button .mask:hover{
+  background-image: url("../assets/images/mask.png");
+}
+
 #button:hover .history{
   opacity: 1;
   background-image: url("../assets/images/history.png");
@@ -164,6 +168,10 @@ body{
   background-repeat: no-repeat;
   background-position: 50% 50%;
   transform: translate(15px , 49px);
+}
+
+#button .sign:hover{
+  background-image: url("../assets/images/signout.png");
 }
 
 /*At button*/
