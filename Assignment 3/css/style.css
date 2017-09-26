@@ -13,6 +13,8 @@ html, body{
 
 #button{
   height: 200px;
+  width: 240px;
+  margin: 0    auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,6 +31,7 @@ html, body{
   list-style: none;
   padding: 0;
 }
+
 
 /*info circle*/
 #button #info-bar{
@@ -48,7 +51,7 @@ html, body{
   border-radius: 50%;
   overflow: hidden;
   -webkit-transition-property: all;
-  transition-property: all;
+          transition-property: all;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
   -webkit-transition-timing-function: ease-in-out;
@@ -101,6 +104,7 @@ html, body{
   font-size: 18pt;
 }
 
+
 /*ring of button*/
 #control-ring{
   position: absolute;
@@ -122,7 +126,7 @@ html, body{
   background-color: rgba(102,102,102,1);
   opacity: 0;
   -webkit-transition-property: all;
-  transition-property: all;
+          transition-property: all;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
   -webkit-transition-timing-function: ease-in-out;
@@ -194,6 +198,7 @@ html, body{
 #button .sign:hover{
   background-image: url("../assets/images/signout.png");
 }/*hover performance for sign only*/
+
 
 /*At button*/
 #button .apb{
