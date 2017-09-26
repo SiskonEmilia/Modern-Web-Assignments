@@ -71,11 +71,11 @@ body{
 
 #control-ring li{
   position: absolute;
-  height: 32px;
-  width: 32px;
+  height: 40px;
+  width: 40px;
   transform: translateY(-32px);
   border-radius: 50%;
-  background-color: rgba(126,126,126,1);
+  background-color: rgba(102,102,102,1);
   opacity: 0;
   transition-property: all;
   transition-duration: 0.5s;
@@ -87,27 +87,54 @@ body{
 
 #button:hover .mask{
   opacity: 1;
-  transform: translate(-80px,-100px);
+  background-image: url("../assets/images/nomask.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transform: translate(-75px,-76px);
 }
 
 #button:hover .history{
   opacity: 1;
-  transform: translate(0,0);
+  background-image: url("../assets/images/history.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transform: translate(-90px,-32px);
 }
 
 #button:hover .message{
   opacity: 1;
-  transform: translate(0,0);
+  background-image: url("../assets/images/message.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transform: translate(-75px, 14px);
+}
+
+.message span{
+  display: inline-block;
+  color: white;
+  font-size: 10pt;
+  width: 20px;
+  height: 20px;
+  line-height: 17px;
+  transform: translate(14px, -10px);
+  border-radius: 50%;
+  background-color: red;
 }
 
 #button:hover .setting{
   opacity: 1;
-  transform: translate(0,0);
+  background-image: url("../assets/images/setting.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transform: translate(-36px, 43px);
 }
 
 #button:hover .sign{
   opacity: 1;
-  transform: translate(0,0);
+  background-image: url("../assets/images/signin.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transform: translate(15px , 49px);
 }
 
 #button #info-bar{
@@ -133,7 +160,7 @@ body{
   height: 200px;
   width: 200px;
   opacity: 1;
-  transform: translateY(-116px) scale(0.7);
+  transform: translateY(-125px) scale(0.8);
 }
 
 #button .apb{
