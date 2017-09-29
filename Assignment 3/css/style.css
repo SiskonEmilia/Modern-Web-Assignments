@@ -222,6 +222,9 @@ html, body{
   -webkit-transition-duration: 0.5s;
        -o-transition-duration: 0.5s;
           transition-duration: 0.5s;
+  -webkit-transition-delay: 0.5s;
+       -o-transition-delay: 0.5s;
+          transition-delay: 0.5s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -233,6 +236,9 @@ html, body{
   -webkit-transform: scale(0.7);
        -o-transform: scale(0.7);
           transform: scale(0.7);
+  -webkit-transition-delay: 0s;
+       -o-transition-delay: 0s;
+          transition-delay: 0s;
   background-color: rgba(48, 63, 159, 1);
   background-image: url("../assets/images/atplus_green.png");
 }
