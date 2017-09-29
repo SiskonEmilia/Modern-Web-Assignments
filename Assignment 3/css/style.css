@@ -7,7 +7,7 @@ html, body{
 #bottom-positioner{
   position: fixed;
   text-align: center;
-  bottom: 10%;
+  bottom: 5%;
   width: 100%;
 }
 
@@ -84,8 +84,15 @@ html, body{
 /*common style for info*/
 .info img{
   -webkit-transform: scale(1.5);
+       -o-transform: scale(1.5);
           transform: scale(1.5);
   margin-right: 18px;
+}
+
+.comment img{
+  -webkit-transform: scale(1.8);
+       -o-transform: scale(1.8);
+          transform: scale(1.8);
 }
 
 .page{
