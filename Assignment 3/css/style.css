@@ -7,12 +7,12 @@ html, body{
 #bottom-positioner{
   position: fixed;
   text-align: center;
-  bottom: 5%;
+  bottom: 0;
   width: 100%;
 }
 
 #button{
-  height: 200px;
+  height: 220px;
   width: 240px;
   margin: 0 auto;
   display: -webkit-box;
