@@ -31,7 +31,7 @@ function calculator(data){
   if(data == "INVALID"){
     return "INVALID";
   }
-  data.replace(/π/g, "pi");
+  data = data.replace(/π/g, "pi");
   try{
     let result = math.eval(data);
     if((result + "").length > 17)
