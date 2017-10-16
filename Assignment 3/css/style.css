@@ -6,14 +6,22 @@ html, body{
 
 #bottom-positioner{
   position: fixed;
+  display: flex;
   text-align: center;
-  bottom: 10%;
+  -webkit-box-align: center;
+    -ms-flex-align: center;
+        align-items: center;
+  -webkit-box-pack: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+  height: 220px;
   width: 100%;
+  bottom: 0;
 }
 
 #button{
-  height: 200px;
-  width: 240px;
+  height: 32px;
+  width: 32px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -25,6 +33,11 @@ html, body{
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+#button:hover{
+  height: 220px;
+  width: 240px;
 }
 
 /*list common style*/
@@ -54,9 +67,9 @@ html, body{
   -webkit-transition-property: all;
        -o-transition-property: all;
           transition-property: all;
-  -webkit-transition-duration: 0.5s;
-       -o-transition-duration: 0.5s;
-          transition-duration: 0.5s;
+  -webkit-transition-duration: 0.4s;
+       -o-transition-duration: 0.4s;
+          transition-duration: 0.4s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -84,8 +97,15 @@ html, body{
 /*common style for info*/
 .info img{
   -webkit-transform: scale(1.5);
+       -o-transform: scale(1.5);
           transform: scale(1.5);
   margin-right: 18px;
+}
+
+.comment img{
+  -webkit-transform: scale(1.8);
+       -o-transform: scale(1.8);
+          transform: scale(1.8);
 }
 
 .page{
@@ -133,9 +153,9 @@ html, body{
   -webkit-transition-property: all;
        -o-transition-property: all;
           transition-property: all;
-  -webkit-transition-duration: 0.5s;
-       -o-transition-duration: 0.5s;
-          transition-duration: 0.5s;
+  -webkit-transition-duration: 0.4s;
+       -o-transition-duration: 0.4s;
+          transition-duration: 0.4s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -179,11 +199,16 @@ html, body{
   width: 20px;
   height: 20px;
   line-height: 17px;
+  opacity: 0;
   -webkit-transform: translate(14px, -10px);
        -o-transform: translate(14px, -10px);
           transform: translate(14px, -10px);
   border-radius: 50%;
   background-color: red;
+}
+
+#button:hover .unread{
+  opacity: 1;
 }
 
 #button:hover .setting{
@@ -219,9 +244,12 @@ html, body{
   -webkit-transition-property: all;
        -o-transition-property: all;
           transition-property: all;
-  -webkit-transition-duration: 0.5s;
-       -o-transition-duration: 0.5s;
-          transition-duration: 0.5s;
+  -webkit-transition-duration: 0.4s;
+       -o-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  -webkit-transition-delay: 0.25s;
+       -o-transition-delay: 0.25s;
+          transition-delay: 0.25s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -233,6 +261,9 @@ html, body{
   -webkit-transform: scale(0.7);
        -o-transform: scale(0.7);
           transform: scale(0.7);
+  -webkit-transition-delay: 0s;
+       -o-transition-delay: 0s;
+          transition-delay: 0s;
   background-color: rgba(48, 63, 159, 1);
   background-image: url("../assets/images/atplus_green.png");
 }
