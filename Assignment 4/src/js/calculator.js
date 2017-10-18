@@ -7,16 +7,18 @@ math.config({
   number: 'BigNumber'
 });
 
+var limitedEval = math.eval;
+
 function ln(a) {
-  return math.eval("log(" + a + ")/log(e)");
+  return limitedEval("log(" + a + ")/log(e)");
 }
 
 function degrees(a) {
-  return math.eval(a + "deg");
+  return limitedEval(a + "deg");
 }
 
 function lev(a){
-  return math.eval(a + "!");
+  return limitedEval(a + "!");
 }
 
 math.import({
@@ -25,6 +27,14 @@ math.import({
   lev: lev
 });// config of mathjs
 
+math.import({
+  'import':     function () { throw new Error('Function import is disabled') },
+  'createUnit': function () { throw new Error('Function createUnit is disabled') },
+  'eval':       function () { throw new Error('Function eval is disabled') },
+  'parse':      function () { throw new Error('Function parse is disabled') },
+  'simplify':   function () { throw new Error('Function simplify is disabled') },
+  'derivative': function () { throw new Error('Function derivative is disabled') }
+}, {override: true});// To prevent from XSS attack
 
 function calculator(data){
   console.log(data);
@@ -33,7 +43,7 @@ function calculator(data){
   }
   data = data.replace(/π/g, "pi");
   try{
-    let result = math.eval(data);
+    let result = limitedEval(data);
     if((result + "").length > 17)
       return result.toPrecision(16) + "";
     else
