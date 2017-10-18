@@ -38,7 +38,7 @@ math.import({
 
 function calculator(data){
   console.log("Calculating: " + data);
-  if(data == "INVALID"){
+  if(data == "INVALID" || this.textContent == "Del"){
     return "INVALID";
   }
   data = data.replace(/π/g, "pi");
