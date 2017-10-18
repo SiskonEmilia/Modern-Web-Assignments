@@ -37,12 +37,14 @@ math.import({
 }, {override: true});// To prevent from XSS attack
 
 function calculator(data){
-  console.log(data);
+  console.log("Calculating: " + data);
   if(data == "INVALID"){
     return "INVALID";
   }
   data = data.replace(/π/g, "pi");
   try{
+    if(data == "")
+      return "";
     let result = limitedEval(data);
     if((result + "").length > 17)
       return result.toPrecision(16) + "";
