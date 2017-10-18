@@ -1,5 +1,7 @@
 # Simple Calculator
 
+提示：通过打开HTML文件夹下的calculator.html来进入本项目
+
 ## Overview
 
 This is a simple implentation of calculator~
@@ -42,7 +44,7 @@ This is a simple implentation of calculator~
 1. User-friendly Interface
 1. High Accuracy Algorithm
 1. Scientific Calculation
-1. Cilent-Server mode
+1. Cilent-Server mode**
 1. Account system*
 1. Specific syntax*
 
@@ -62,7 +64,7 @@ This is a simple implentation of calculator~
 1. remove AJAX/Node.js section
 1. construct without cilent/server model
 1. add error messages
-
+1. remove some functions that may lead to bugs
 
 ---
 
