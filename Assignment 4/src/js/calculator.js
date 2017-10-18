@@ -88,7 +88,7 @@ $(document).ready(function () {
     reset(undefined);
     if(isNaN(this.textContent)){
       if(isRes){
-        if(res.textContent = "INVALID")
+        if(res.textContent == "INVALID")
           fom.textContent = 0;
         else
           fom.textContent = res.textContent;
