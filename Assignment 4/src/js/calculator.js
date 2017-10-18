@@ -38,7 +38,7 @@ math.import({
 
 function calculator(data){
   console.log("Calculating: " + data);
-  if(data == "INVALID" || this.textContent == "Del"){
+  if(data == "INVALID"){
     return "INVALID";
   }
   data = data.replace(/π/g, "pi");
@@ -100,7 +100,7 @@ $(document).ready(function () {
     reset(undefined);
     if(isNaN(this.textContent)){
       if(isRes){
-        if(res.textContent == "INVALID")
+        if(res.textContent == "INVALID" || this.textContent == "Del")
           fom.textContent = "";
         else
           fom.textContent = res.textContent;
