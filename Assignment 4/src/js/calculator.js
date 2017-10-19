@@ -102,7 +102,7 @@ $(document).ready(function () {
     reset(undefined);
     if(isNaN(this.textContent)){
       if(isRes){
-        if(res.textContent == "INVALID" || this.textContent == "Del" || res.textContent.indexOf("infinity") != -1)
+        if(res.textContent == "INVALID" || this.textContent == "Del" || res.textContent.indexOf("Infinity") != -1)
           fom.textContent = "";
         else
           fom.textContent = res.textContent;
