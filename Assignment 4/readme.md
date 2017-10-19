@@ -2,6 +2,14 @@
 
 提示：通过打开HTML文件夹下的calculator.html来进入本项目
 
+## lightspots
+
+1. 支持高精度运算
+1. 支持部分科学运算
+1. 较为美观的UI和动画变换
+1. 较为完备的XSS攻击应对
+1. 对于文字溢出的简单处理
+
 ## Overview
 
 This is a simple implentation of calculator~
