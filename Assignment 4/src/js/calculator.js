@@ -139,8 +139,10 @@ $(document).ready(function () {
           }
           break;
         case 'Del':
-          if(fom.textContent != "")
-            fom.textContent = fom.textContent.substr(0, fom.textContent.length - 1);
+          if(fom.textContent != ""){
+            if(fom.textContent.charAt(fom.textContent.length - 1) == "(")
+              --numOfLeft;
+            fom.textContent = fom.textContent.substr(0, fom.textContent.length - 1);}
           break;
         case "n!":
           addFunc("lev");
