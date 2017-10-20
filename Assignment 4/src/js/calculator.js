@@ -48,8 +48,8 @@ function calculator(data){
     let result = limitedEval(data);
     if(result == "NaN")
       throw "Error!";
-    if((result + "").length > 17)
-      return result.toPrecision(16) + "";
+    if((result + "").length >= 17)
+      return result.toPrecision(15) + "";
     else
       return result + "";
   }
