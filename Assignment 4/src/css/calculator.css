@@ -1,16 +1,6 @@
-@-webkit-keyframes fadeIn {
-	0%{ opacity: 0; }
-	100%{ opacity: 1; }
-}
-
 @keyframes fadeIn {
 	0%{ opacity: 0; }
 	100%{ opacity: 1; }
-}
-
-@-webkit-keyframes fadeOut {
-	0%{ opacity: 1; }
-	100%{ opacity: 0; }
 }
 
 @keyframes fadeOut {
@@ -51,12 +41,6 @@ body {
 	animation-duration: 1.5s; 
 	animation-iteration-count: 1; 
 	animation-delay: 0s;  
-
-	/*For webkit based browser*/
-	-webkit-animation-name: fadeIn; 
-	-webkit-animation-duration: 1.5s; 
-	-webkit-animation-iteration-count: 1; 
-	-webkit-animation-delay: 0s;
 }
 
 .board {
@@ -158,13 +142,6 @@ body {
 	animation-iteration-count: 1; 
 	animation-delay: 0.5s; 
 	animation-fill-mode:forwards;
-
-	/*For webkit based browsers*/
-	-webkit-animation-name: fadeIn; 
-	-webkit-animation-duration: 1.5s; 
-	-webkit-animation-iteration-count: 1; 
-	-webkit-animation-delay: 0.5s; 
-	-webkit-animation-fill-mode:forwards;
 }
 
 .animeOut {
@@ -172,12 +149,6 @@ body {
 	animation-duration: 1.5s; 
 	animation-iteration-count: 1; 
 	animation-fill-mode:forwards;
-
-	/*For webkit based browsers*/
-	-webkit-animation-name: fadeOut; 
-	-webkit-animation-duration: 1.5s; 
-	-webkit-animation-iteration-count: 1;
-	-webkit-animation-fill-mode:forwards;
 }
 
 #info p{
