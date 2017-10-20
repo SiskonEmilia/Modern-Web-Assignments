@@ -59,7 +59,20 @@ function calculator(data){
   }
 }
 
+function clearInfo(){
+  if($('#info').height() + 600 > window.innerHeight){
+    if($('#info').hasClass('animeIn'))
+      $('#info').removeClass('animeIn').addClass('animeOut');
+  }
+  else{
+    if($('#info').hasClass('animeOut'))
+      $('#info').removeClass('animeOut').addClass('animeIn');
+  }
+}
+
 $(document).ready(function () {
+  clearInfo();
+  $(window).resize(clearInfo);
   let numOfLeft = 0;
   let isRes = false;
   let fom = document.getElementById('equation'), 
