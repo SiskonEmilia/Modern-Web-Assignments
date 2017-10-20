@@ -60,7 +60,7 @@ function calculator(data){
 }
 
 function clearInfo(){
-  if($('#info').height()*2 + 600 > window.innerHeight){
+  if($('#info').height()*2 + 600 > document.body.clientHeight){
     if($('#info').hasClass('animeIn'))
       $('#info').removeClass('animeIn').addClass('animeOut');
   }
