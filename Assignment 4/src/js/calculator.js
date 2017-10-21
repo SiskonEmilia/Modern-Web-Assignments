@@ -165,10 +165,14 @@ $(document).ready(function () {
           isFunc = false;
           break;
         case "π":
+          if(isFunc)
+            fom.textContent = "";
           fom.textContent += "π";
           isFunc = false;
           break;
         case "e":
+          if(isFunc)
+            fom.textContent = "";
           fom.textContent += "e";
           isFunc = false;
           break;
@@ -179,7 +183,12 @@ $(document).ready(function () {
           reset(fade);
           isRes = true;
           break;
-
+        case ".":
+          if(isFunc)
+            fom.textContent = "";
+          addOperator(this.textContent);
+          isFunc = false;
+          break;
         default:
           addOperator(this.textContent);
           isFunc = false;
