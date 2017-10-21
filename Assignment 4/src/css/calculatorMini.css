@@ -102,7 +102,7 @@ body {
 .button {
     display: inline-block;
     background-color: rgba(230,230,230,1);
-    font-size: 20pt;
+    font-size: 17pt;
     width: calc(100% / 7 - 4px);
     line-height: 56px;
     height:  calc(100% / 5 - 4px);
