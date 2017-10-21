@@ -74,7 +74,7 @@ $(document).ready(function () {
   clearInfo();
   $(window).resize(clearInfo);
   let numOfLeft = 0;
-  let isRes = false;
+  let isRes = false, isFunc = false;;
   let fom = document.getElementById('equation'), 
     res = document.getElementById('result');
 
@@ -89,7 +89,9 @@ $(document).ready(function () {
 
   function addFunc(funcName){
     ++numOfLeft;
-    fom.textContent += funcName + "(";
+    if(isFunc)
+      fom.textContent = funcName + "(" + fom.textContent;
+    else  fom.textContent += funcName + "(";
   }
 
   function addOperator(opr){
@@ -120,6 +122,7 @@ $(document).ready(function () {
         else
           fom.textContent = res.textContent;
         isRes = false;
+        isFunc = true;
       }
       switch (this.textContent) {
         case "---":
@@ -127,10 +130,12 @@ $(document).ready(function () {
         case 'CE':
           fom.textContent = "";
           init();
+          isFunc = false;
           break;
         case '(':
           ++numOfLeft;
           fom.textContent += "(";
+          isFunc = false;
           break;
         case ')':
           if(numOfLeft > 0){
@@ -157,12 +162,15 @@ $(document).ready(function () {
           break;
         case "x^y":
           addOperator("^");
+          isFunc = false;
           break;
         case "π":
           fom.textContent += "π";
+          isFunc = false;
           break;
         case "e":
           fom.textContent += "e";
+          isFunc = false;
           break;
         case "=":
           autoFill();
@@ -174,6 +182,7 @@ $(document).ready(function () {
 
         default:
           addOperator(this.textContent);
+          isFunc = false;
           break;
       }
     }
@@ -182,6 +191,7 @@ $(document).ready(function () {
         fom.textContent = "";
         isRes = false;
       }
+      isFunc = false;
       fom.textContent += this.textContent;
     }
   });
