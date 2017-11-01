@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<!--This HTML website has the best appearace with Chrome on Windows 10-->
+<head>
+	<title>
+		Simple Maze
+	</title>
+	<meta charset="utf-8"/>  
+	<meta name="keywords" content="Emilia, game, maze">
+	<link href="../style/maze.css" type="text/css" rel="stylesheet" media="screen"/>
+	<link href="../images/favicon.png" type="image/png" rel="shortcut icon" />
+</head>
+
+<body>
+	<script src="../js/maze.js"></script>
+	<div class="container">
+		<header>
+			The Amazing Mouse Maze!
+		</header>
+		<article>
+			Move your mouse over the "s" to begin.
+		</article>
+		<div id="boarder"> </div>
+		<div id="playZone">
+			<div id="top" class="wall"></div>
+			<div id="left" class="wall"></div>
+			<div id="right" class="wall"></div>
+			<div id="middle">
+					<div id="start" class="start">S</div>
+					<div id="inSide" class="wall"></div>
+					<div id="end" class="end">E</div>
+			</div>		
+			<div id="bottom" class="wall"></div>
+		</div>
+		<p>
+			The object of this game is to guide the moust cursor throught the start 
+			area and get to the end area. Be sure to avoid the walls:
+		</p>
+		<div class="sample"></div>
+		<p>
+			Good luck!
+		</p>
+	</div>
+</body>
+
+</html>

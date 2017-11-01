@@ -1,0 +1,185 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Century Gothic", sans-serif;
+  user-select: none;
+}
+
+@keyframes boom { 
+  0% { opacity: 0 } 
+  50% { opacity: 1 } 
+  100% { 
+    transform: scale(1.3); 
+    transform: scale(1.3); 
+    opacity: 0;
+  } 
+}
+
+.container {
+  width: 100%;
+}
+
+.sample {
+  width: 100px;
+  height: 25px;
+  margin: auto;
+  margin-top: 15px;
+  border: 1px solid black;
+  background-color: rgba(238, 238, 238, 1);
+}
+
+header, article{
+  width: 100%;
+  text-align: center;
+}
+
+p {
+  width: 600px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+header {
+  font-size: 30pt;
+}
+
+article {
+  font-size: 25pt;
+}
+
+#boarder {
+  height: 60px;
+  line-height: 60px;
+  font-size: 22pt;
+  width: 100%;
+  text-align: center;
+  transition: 0.4s 0s all ease-in-out;
+}
+
+.large {
+  font-size: 30pt;
+}
+
+.small {
+  font-size: 18pt;
+}
+
+.fade {
+  opacity: 0;
+}
+
+#playZone {
+  width: 502px;
+  height: 300px;
+  margin: auto;
+  position: relative;
+  cursor: pointer;
+}
+
+#top {
+  height: 50px;
+  width: 500px;
+}
+
+#left, #right{
+  height: 150px;
+  width: 150px;
+  position: relative;
+  top: -1px;
+  border-top-color: rgba(238, 238, 238, 1);
+}
+
+#right, #end{
+  float: right;
+}
+
+#left, #start {
+  float: left;
+}
+
+#middle {
+  clear: both;
+  height: 50px;
+}
+
+#bottom {
+  height: 50px;
+  width: 500px;
+}
+
+#start, #end {
+  height:40px;
+  width: 40px;
+  border: 1px;
+  margin-top: 4px;
+  border-style: solid;
+  border-color: black;
+  font-size: 23pt;
+  text-align: center;
+  position: relative;
+  font-family: sans-serif;
+}
+
+.start, .end {
+  background-color: white;
+  color: black;
+  transition: 0.4s 0s all ease-in-out;
+}
+
+#start::after, #end::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border: 1px solid black;
+}
+
+#start:hover::after, #end:hover::after {
+  animation: boom 0.5s ease;
+}
+
+#inSide {
+  height: 150px;
+  width: 100px;
+  position: relative;
+  left: 200px;
+  top: -101px;
+  border-bottom-color: rgba(238, 238, 238, 1);
+}
+
+#end {
+  bottom: 152px;
+}
+
+.wall {
+  background-color: rgba(238, 238, 238, 1);
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+  transition: 0.4s 0s all ease-in-out;
+}
+
+.sideWall {
+  width: 150px;
+  height: 150px;
+}
+
+.started {
+  background-color: rgb(0, 150, 90);
+  color: white;
+}
+
+.ended {
+  background-color: rgb(102, 0, 150);
+  color: white;
+}
+
+.wallKnocked {
+  background-color: rgb(200,50,50);
+}
