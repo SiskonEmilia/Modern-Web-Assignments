@@ -88,6 +88,7 @@ html, body {
   opacity: 0;
   border-radius: 15px;
   border: 2px solid gray;
+  transition: all 0.3s ease-in-out;
 }
 
 .button:hover::after {
@@ -101,5 +102,10 @@ html, body {
 
 .stop::after {
   border-color: #f0935e;
+  animation: boom 0.6s ease infinite;
+  transition: all 0.3s ease-in-out;
+}
+
+.stop:hover::after {
   animation: boom 0.6s ease infinite;
 }
