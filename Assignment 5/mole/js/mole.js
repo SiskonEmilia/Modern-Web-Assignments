@@ -1,7 +1,8 @@
 window.onload = function () {
   var timeBoarder = document.getElementById('time');
   var scoreBoarder = document.getElementById('score');
-  var moles = document.getElementsByClassName('mole');
+  var moles = document.getElementsByClassName('hole');
+  var molesOut = document.getElementsByClassName('mole');
   var button = document.getElementsByClassName('button')[0];
   var time = 0, score = 0;
   var timeT;
@@ -46,20 +47,18 @@ window.onload = function () {
 
   function randomChecked() {
     date = new Date();
-    moles[moleIndex = date.getTime() % 60].checked = true;
+    moles[moleIndex = date.getTime() % 60].className = "mole";
   }
 
   function clearChecked() {
-    for (moleIndex = 0; moleIndex < 60; ++moleIndex) {
-      moles[moleIndex].checked = false;
-    }
+    molesOut[0].className = "hole";
   }
 
   for (moleIndex = 0; moleIndex < 60; ++moleIndex) {
     moles[moleIndex].onclick = function() {
-      this.checked = false;
       if(isStart){
-        if(this.name == moleIndex){
+        if(this.className == "mole"){
+          this.className = "hole";
           score += 1;
           randomChecked();
         }
