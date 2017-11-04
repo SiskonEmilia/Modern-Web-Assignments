@@ -5,6 +5,7 @@ window.onload = function () {
   var molesOut = document.getElementsByClassName('mole');
   var button = document.getElementsByClassName('button')[0];
   var bgm = document.getElementById('bgmusic');
+  var sound = document.getElementById('sound');
   var time = 0, score = 0;
   var timeT;
   var moleIndex = 0;
@@ -65,6 +66,7 @@ window.onload = function () {
           this.className = "hole";
           score += 1;
           randomChecked();
+          document.getElementById('sound').play();
         }
         else
           score -= 1;
