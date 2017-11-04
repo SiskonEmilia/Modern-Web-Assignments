@@ -4,6 +4,7 @@ window.onload = function () {
   var moles = document.getElementsByClassName('hole');
   var molesOut = document.getElementsByClassName('mole');
   var button = document.getElementsByClassName('button')[0];
+  var bgm = document.getElementById('bgmusic');
   var time = 0, score = 0;
   var timeT;
   var moleIndex = 0;
@@ -18,6 +19,7 @@ window.onload = function () {
     isStart = false;
     setTimeout(function () {
       alert('Game Over.\nYour score is: ' + score + ((time <= 0) ? "" : ('\nTime left: ' + time)));
+      bgm.src = "";
     }, 50);
   }
 
@@ -30,6 +32,7 @@ window.onload = function () {
 
   button.onclick = function () {
     if (isStart) {
+      bgm.src = "";
       gameover();
     }
     else {
@@ -39,6 +42,7 @@ window.onload = function () {
       time = 30;
       score = 0;
       scoreBoarder.textContent = score;
+      bgm.src = "../music/moleBGM.mp3";
       randomChecked();
       timeCounter();
       timeT = setInterval(timeCounter, 1000);
