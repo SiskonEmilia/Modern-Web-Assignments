@@ -1,0 +1,415 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.8s;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+}
+
+.filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255,255,255,0.7);
+  z-index: 0;
+}
+
+.bgimage {
+  background-image: url('../image/bgimage.png');
+  background-size: cover;
+  background-attachment: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition-duration: 0.8s;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  z-index: -1;
+}
+
+@keyframes boom { 
+  0% { 
+    opacity: 0;
+  } 
+  50% { 
+    opacity: 1;
+  } 
+  100% { 
+    transform: scaleX(1.2) scaleY(1.6);
+    opacity: 0;
+  } 
+}
+
+@keyframes win { 
+  0% { 
+    transform: scale(1);
+  } 
+  10% { 
+    transform: scaleX(1.2) scaleY(1.2);
+  } 
+  20% { 
+    transform: scale(1);
+  } 
+}
+
+#tips {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 15pt;
+  bottom: 5px;
+}
+
+#container {
+  position: relative;
+  text-align: center;
+}
+
+#playzone {
+  position: relative;
+  width: 375px;
+  height: 375px;
+  margin: auto;
+  border: 1px solid gray;
+  box-shadow: 0 0 2px 2px rgb(72, 138, 236);
+}
+
+#timer, #steps {
+  font-size: 20pt;
+  margin: auto;
+  margin-left: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+#time, #stepnum {
+  margin-left: 20px;
+  margin-right: 50px;
+}
+
+#steps {
+  margin-bottom: 20px;
+}
+
+.board {
+  text-align: center;
+  font-size: 40pt;
+  width: 500px;
+  font-family: sans-serif;
+}
+
+#info {
+  margin: 30px auto 20px auto;
+  transition-duration: 0.8s;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+}
+
+.shown {
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.puzzle {
+  background-image: url('../image/puzzle.png');
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  border: 1px solid #b9bcb1;
+  margin: 3px;
+  transition-duration: 0.3s;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  opacity: 0.75;
+  cursor: pointer;
+}
+
+.puzzle:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.row0 {
+  top: 0px;
+}
+
+.row1 {
+  top: 93px;
+}
+
+.row2 {
+  top: 186px;
+}
+
+.row3 {
+  top: 279px;
+}
+
+.col0 {
+  left: 0px;
+}
+
+.col1 {
+  left: 93px;
+}
+
+.col2 {
+  left: 186px;
+}
+
+.col3 {
+  left: 279px;
+}
+
+#part0 {
+  background-position: 0 0;
+}
+
+#part1 {
+  background-position: -94px 0px;
+}
+
+#part2 {
+  background-position: -188px 0px;
+}
+
+#part3 {
+  background-position: -282px 0px;
+}
+
+#part4 {
+  background-position: 0 -94px;
+}
+
+#part5 {
+  background-position: -94px -94px;
+}
+
+#part6 {
+  background-position: -188px -94px;
+}
+
+#part7 {
+  background-position: -282px -94px;
+}
+
+#part8 {
+  background-position: 0 -188px;
+}
+
+#part9 {
+  background-position: -94px -188px;
+}
+
+#part10 {
+  background-position: -188px -188px;
+}
+
+#part11 {
+  background-position: -282px -188px;
+}
+
+#part12 {
+  background-position: 0 -282px;
+}
+
+#part13 {
+  background-position: -94px -282px;
+}
+
+#part14 {
+  background-position: -188px -282px;
+}
+
+#part15 {
+  background-position: -282px -282px;
+  background-image: url('../image/puzzle.png');
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  border: 1px solid #b9bcb1;
+  margin: 3px;
+  transition-duration: 0.3s;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  pointer-events: none;
+}
+
+
+.start {
+  cursor: pointer;
+  width: 75px;
+  height: 34px;
+  border-color: gray;
+	border-radius: 15px;
+	border: 4px solid;
+	color: gray;
+	line-height: 34px;
+  padding-left: 14px;
+  padding-right: 46px;
+  font-family: sans-serif;
+	font-size: 25px;
+	letter-spacing: 4px;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  position: relative;
+  user-select: none;
+}
+
+.start::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;  
+  top: -2px;
+  left: -2px;
+  opacity: 0;
+  border-radius: 15px;
+  border: 2px solid gray;
+  transition: all 0.3s ease-in-out;
+}
+
+.start:hover::after {
+  animation: boom 0.6s ease infinite;
+}
+
+.solve {
+  padding-left: 14px;
+  padding-right: 89px;
+  margin-top: 30px;
+}
+
+.stop {
+  border-color: #f0935e;
+  color: #f0935e;
+}
+
+.stop::after {
+  border-color: #f0935e;
+  animation: boom 0.6s ease infinite;
+  transition: all 0.3s ease-in-out;
+}
+
+.winner {
+  opacity: 1;
+  animation: win 3s ease infinite;
+}
+
+.input {
+	position: relative;
+  z-index: 1;
+	display: inline-block;
+  margin: 1em;
+  margin-top: 30px;
+	max-width: 400px;
+	width: calc(100% - 2em);
+  vertical-align: top;
+  height: 94px;
+  overflow: hidden;
+}
+
+.input__field {
+  position: absolute;
+	display: block;
+	float: right;
+	border: none;
+  font-weight: bold;
+  font-size: 18pt;
+  outline: none;
+  top: 30px;
+	padding: 0.85em 0.15em;
+	width: 100%;
+	background: transparent;
+	color: #595F6E;
+}
+
+.input__label {
+	display: inline-block;
+	color: #6a7989;
+	font-weight: bold;
+	font-size: 20pt;
+  user-select: none;
+  position: absolute;
+	bottom: 0;
+	left: -8px;
+	padding: 0 0.25em;
+	width: 100%;
+	height: calc(100% - 1em);
+	text-align: left;
+  pointer-events: none;
+  border-color: hsl(200, 100%, 50%);
+}
+
+.input__label-content {
+	position: absolute;
+	display: block;
+  width: 100%;
+  bottom: 20px;
+}
+
+.input__label::before,
+.input__label::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: calc(100% - 10px);
+	border-bottom: 1px solid #B9C1CA;
+}
+
+.input__label::after {
+	margin-top: 2px;
+	border-bottom: 4px solid hsl(200, 100%, 50%);
+	transform: translate3d(-100%, 0, 0);
+	transition: transform 0.3s;
+}
+
+
+.input__field:focus + .input__label::after,
+.input--filled .input__label::after {
+	transform: translate3d(0, 0, 0);
+}
+
+.input__field:focus + .input__label .input__label-content,
+.input--filled .input__label-content {
+	animation: anim-1 0.3s forwards;
+}
+
+@keyframes anim-1 {
+	50% {
+		opacity: 0;
+		-webkit-transform: translate3d(1em, 0, 0);
+		transform: translate3d(1em, 0, 0);
+	}
+	51% {
+		opacity: 0;
+    transform: translate3d(-1em, -70%, 0);
+
+	}
+	100% {
+		opacity: 1;
+		transform: translate3d(0, -70%, 0);
+	}
+}
+
