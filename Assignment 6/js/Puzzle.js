@@ -5,14 +5,15 @@ $(function(){
   var infoBar = $('#info')[0];
   var winPart = $('#part15');
   var award = $('#award')[0];
-   puzzleMap = new Array();
-   solveMap = new Array();
-   solveQueue = new Array();
-   solvePos = [3, 3];
+  var puzzleMap = new Array();
+  var solveMap = new Array();
+  var solveQueue = new Array();
+  var solvePos = [3, 3];
   var puzzles = $('puzzle');
-  difficulty = 10;
-   blankPos = [3, 3];
+  var difficulty = 10;
+  var blankPos = [3, 3];
   var isStart = false;
+  var puzzleNum = 0;
   for (var i = 0; i < 4; ++i) {
     puzzleMap[i] = new Array();
     solveMap[i] = new Array();
@@ -71,22 +72,22 @@ $(function(){
     var statu = availableCheck(this.id.substr(4));
     switch(statu) {
       case 1:
-        this.className = 'puzzle row' + blankPos[0] + " col" + blankPos[1];
+        this.className = 'puzzle' + puzzleNum + ' puzzle row' + blankPos[0] + " col" + blankPos[1];
         swap(blankPos[0], blankPos[1], blankPos[0] - 1, blankPos[1]);
         blankPos[0] -= 1;
       break;
       case 2:
-        this.className = 'puzzle row' + blankPos[0] + " col" + blankPos[1];
+        this.className = 'puzzle' + puzzleNum + ' puzzle row' + blankPos[0] + " col" + blankPos[1];
         swap(blankPos[0], blankPos[1], blankPos[0], blankPos[1] - 1);
         blankPos[1] -= 1;
       break;
       case 3:
-        this.className = 'puzzle row' + blankPos[0] + " col" + blankPos[1];
+        this.className = 'puzzle' + puzzleNum + ' puzzle row' + blankPos[0] + " col" + blankPos[1];
         swap(blankPos[0], blankPos[1], blankPos[0] + 1, blankPos[1]);
         blankPos[0] += 1;
       break;
       case 4:
-        this.className = 'puzzle row' + blankPos[0] + " col" + blankPos[1];
+        this.className = 'puzzle' + puzzleNum + ' puzzle row' + blankPos[0] + " col" + blankPos[1];
         swap(blankPos[0], blankPos[1], blankPos[0], blankPos[1] + 1);
         blankPos[1] += 1;
       break;
@@ -101,6 +102,8 @@ $(function(){
         isStart = false;
         $('.stop').removeClass('stop');
         if (difficulty >= 20){
+          ++puzzleNum;
+          puzzleNum %= 3;
           if (award.currentSrc == "")
             award.src = '../music/bgmusic.mp3';
           $('#bg').removeClass('hidden').addClass('shown');
@@ -126,8 +129,7 @@ $(function(){
     blankPos = [3, 3];
     initMap();
     Timer();
-    winPart.removeClass('winner')
-    .removeClass('shown').addClass('hidden');
+    winPart[0].className = 'row3 col3 hidden puzzle' + puzzleNum;
     infoBar.className = "hidden";
     counter = 0;
     stepBoard.textContent = 0;
@@ -173,7 +175,7 @@ $(function(){
         num = puzzleMap[i][t];
         if (num != '#') {
           document.getElementById('part' + num).className = 
-          'puzzle row' + i + ' col' + t;
+          'puzzle' + puzzleNum + ' puzzle row' + i + ' col' + t;
         }
       }
     }

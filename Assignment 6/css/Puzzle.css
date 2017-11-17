@@ -129,7 +129,6 @@ body {
 }
 
 .puzzle {
-  background-image: url('../image/puzzle.png');
   position: absolute;
   width: 88px;
   height: 88px;
@@ -140,6 +139,18 @@ body {
   transition-timing-function: ease-in-out;
   opacity: 0.75;
   cursor: pointer;
+}
+
+.puzzle0 {
+  background-image: url('../image/puzzle0.png');
+}
+
+.puzzle1 {
+  background-image: url('../image/puzzle1.jpg');
+}
+
+.puzzle2 {
+  background-image: url('../image/puzzle2.png');
 }
 
 .puzzle:hover {
@@ -241,7 +252,6 @@ body {
 
 #part15 {
   background-position: -282px -282px;
-  background-image: url('../image/puzzle.png');
   position: absolute;
   width: 88px;
   height: 88px;
