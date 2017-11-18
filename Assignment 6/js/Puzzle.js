@@ -1,5 +1,5 @@
 $(function () {
-  var timer, counter, timerID;
+  var timer, counter, timerID, startID;
   var timeBoard = $('#time')[0];
   var stepBoard = $('#stepnum')[0];
   var infoBar = $('#info')[0];
@@ -66,7 +66,42 @@ $(function () {
     return true;
   }
 
-  $('.puzzle').click(function () {
+  $('body').keydown(function(event){
+    switch(event.which) {
+      case 37: case 65:
+        if (blankPos[1] == 0)
+          return;
+        moveEvent.call($('.row' + blankPos[0] +
+        '.col' + (blankPos[1] - 1))[0]);
+      break;
+      
+      case 38: case 87:
+        if (blankPos[0] == 0)
+          return;
+        moveEvent.call($('.row' + (blankPos[0] - 1) +
+        '.col' + blankPos[1])[0]);
+      break;
+
+      case 39: case 68:
+        if (blankPos[1] == 3)
+          return;
+        moveEvent.call($('.row' + blankPos[0] +
+        '.col' + (blankPos[1] + 1))[0]);
+      break;
+
+      case 40: case 83:
+        if (blankPos[0] == 3)
+          return;
+        moveEvent.call($('.row' + (blankPos[0] + 1) +
+        '.col' + blankPos[1])[0]);
+      break;
+
+      default:
+      break;
+    }
+  });
+
+  function moveEvent() {
     if (!isStart)
       return;
     var statu = availableCheck(this.id.substr(4));
@@ -97,8 +132,14 @@ $(function () {
     if (statu != 0) {
       stepBoard.textContent = ++counter;
       if (pass()) {
-        infoBar.textContent = "You Win!";
-        infoBar.className = "shown";
+        infoBar.className = "hidden";
+        if (startID != undefined)
+          clearTimeout(startID);
+        startID = setTimeout(() => {
+          infoBar.textContent = "You Win!";
+          infoBar.className = "shown";
+          startID = undefined;
+        }, 800);
         isStart = false;
         $('.stop').removeClass('stop');
         if (difficulty >= 20) {
@@ -123,7 +164,9 @@ $(function () {
         clearInterval(timerID);
       }
     }
-  });
+  }
+
+  $('.puzzle').click(moveEvent);
 
   $('#start').click(function () {
     blankPos = [3, 3];
@@ -131,6 +174,13 @@ $(function () {
     Timer();
     winPart[0].className = 'row3 col3 hidden puzzle' + puzzleNum;
     infoBar.className = "hidden";
+    if (startID != undefined)
+      clearTimeout(startID);
+    startID = setTimeout(()=>{
+      infoBar.textContent = "Game Start!";
+      infoBar.className = "shown";
+      startID = undefined;
+    }, 800);
     counter = 0;
     stepBoard.textContent = 0;
     isStart = false;
@@ -145,6 +195,8 @@ $(function () {
         alert('Please type in a positive number!');
         refresh();
         clearInterval(timerID);
+        if (startID != undefined)
+          clearTimeout(startID);
         $('.start').removeClass('stop');
         infoBar.textContent = "Puzzle Game";
         infoBar.className = "shown";
@@ -155,6 +207,8 @@ $(function () {
         alert('It will be to hard for you! Decrease your number to less than 10000!');
         refresh();
         clearInterval(timerID);
+        if (startID != undefined)
+          clearTimeout(startID);
         $('.start').removeClass('stop');
         infoBar.textContent = "Puzzle Game";
         infoBar.className = "shown";
@@ -270,6 +324,8 @@ $(function () {
     if (!isStart) return;
 
     clearInterval(timerID);
+    if (startID != undefined)
+      clearTimeout(startID);
     $('.stop').removeClass('stop');
     setTimeout(() => { this.className = "start solve stop" },
       50);
