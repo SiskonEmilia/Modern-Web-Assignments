@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
   var timer, counter, timerID;
   var timeBoard = $('#time')[0];
   var stepBoard = $('#stepnum')[0];
@@ -44,12 +44,12 @@ $(function(){
   }
 
   function Timer() {
-    if (timerID){
+    if (timerID) {
       clearInterval(timerID);
       timeBoard.textContent = 0;
     }
     timer = 0;
-    timerID = setInterval(()=>{
+    timerID = setInterval(() => {
       timeBoard.textContent = ++timer;
     }, 1000);
   }
@@ -66,42 +66,42 @@ $(function(){
     return true;
   }
 
-  $('.puzzle').click(function() {
+  $('.puzzle').click(function () {
     if (!isStart)
       return;
     var statu = availableCheck(this.id.substr(4));
-    switch(statu) {
+    switch (statu) {
       case 1:
         this.className = 'puzzle' + puzzleNum + ' puzzle row' + blankPos[0] + " col" + blankPos[1];
         swap(blankPos[0], blankPos[1], blankPos[0] - 1, blankPos[1]);
         blankPos[0] -= 1;
-      break;
+        break;
       case 2:
         this.className = 'puzzle' + puzzleNum + ' puzzle row' + blankPos[0] + " col" + blankPos[1];
         swap(blankPos[0], blankPos[1], blankPos[0], blankPos[1] - 1);
         blankPos[1] -= 1;
-      break;
+        break;
       case 3:
         this.className = 'puzzle' + puzzleNum + ' puzzle row' + blankPos[0] + " col" + blankPos[1];
         swap(blankPos[0], blankPos[1], blankPos[0] + 1, blankPos[1]);
         blankPos[0] += 1;
-      break;
+        break;
       case 4:
         this.className = 'puzzle' + puzzleNum + ' puzzle row' + blankPos[0] + " col" + blankPos[1];
         swap(blankPos[0], blankPos[1], blankPos[0], blankPos[1] + 1);
         blankPos[1] += 1;
-      break;
+        break;
       default:
-      return;
+        return;
     }
     if (statu != 0) {
       stepBoard.textContent = ++counter;
-      if(pass()){
+      if (pass()) {
         infoBar.textContent = "You Win!";
         infoBar.className = "shown";
         isStart = false;
         $('.stop').removeClass('stop');
-        if (difficulty >= 20){
+        if (difficulty >= 20) {
           ++puzzleNum;
           puzzleNum %= 3;
           if (award.currentSrc == "")
@@ -111,11 +111,11 @@ $(function(){
           $('#part' + i).addClass('winner');
           timeID = setInterval(() => {
             $('#part' + ++i).addClass('winner');
-            if (i == 14){
+            if (i == 14) {
               clearInterval(timeID);
               setTimeout(() => {
                 $('#part15').removeClass('hidden')
-                .addClass('shown').addClass('winner');
+                  .addClass('shown').addClass('winner');
               }, 80);
             }
           }, 80);
@@ -125,7 +125,7 @@ $(function(){
     }
   });
 
-  $('#start').click(function(){
+  $('#start').click(function () {
     blankPos = [3, 3];
     initMap();
     Timer();
@@ -135,18 +135,30 @@ $(function(){
     stepBoard.textContent = 0;
     isStart = false;
     var steps = $('.input__field')[0].value;
-    if (steps == ""){
+    if (steps == "") {
       $('.start').removeClass('stop');
       difficulty = 10;
       randomSteps(10);
     }
-    else{
+    else {
       if (isNaN(steps) || steps <= 0) {
         alert('Please type in a positive number!');
+        refresh();
+        clearInterval(timerID);
+        $('.start').removeClass('stop');
+        infoBar.textContent = "Puzzle Game";
+        infoBar.className = "shown";
+        isStart = false;
         return;
       }
       if (steps > 10000) {
         alert('It will be to hard for you! Decrease your number to less than 10000!');
+        refresh();
+        clearInterval(timerID);
+        $('.start').removeClass('stop');
+        infoBar.textContent = "Puzzle Game";
+        infoBar.className = "shown";
+        isStart = false;
         return;
       }
       $('.start').removeClass('stop');
@@ -174,8 +186,8 @@ $(function(){
       for (var t = 0; t < 4; ++t) {
         num = puzzleMap[i][t];
         if (num != '#') {
-          document.getElementById('part' + num).className = 
-          'puzzle' + puzzleNum + ' puzzle row' + i + ' col' + t;
+          document.getElementById('part' + num).className =
+            'puzzle' + puzzleNum + ' puzzle row' + i + ' col' + t;
         }
       }
     }
@@ -186,57 +198,57 @@ $(function(){
     puzzleMap[x1][y1] = puzzleMap[x2][y2];
     puzzleMap[x2][y2] = temp;
   }
-  
+
   function randomSteps(steps) {
     for (var i = 0; i < steps; ++i) {
-      switch (Math.floor(Math.random()*4)) {
+      switch (Math.floor(Math.random() * 4)) {
         case 0:
-          if (blankPos[1] == 3){
+          if (blankPos[1] == 3) {
             --i;
             break;
           }
           swap(blankPos[0], blankPos[1] + 1,
-          blankPos[0], blankPos[1]);
+            blankPos[0], blankPos[1]);
           blankPos[1] += 1;
           solveQueue[i] = 1;
-        break;
+          break;
 
         case 1:
-          if (blankPos[1] == 0){
+          if (blankPos[1] == 0) {
             --i;
             break;
           }
           swap(blankPos[0], blankPos[1] - 1,
-          blankPos[0], blankPos[1]);
+            blankPos[0], blankPos[1]);
           blankPos[1] -= 1;
           solveQueue[i] = 0;
-        break;
-        
+          break;
+
         case 2:
-          if (blankPos[0] == 3){
+          if (blankPos[0] == 3) {
             --i;
             break;
           }
           swap(blankPos[0] + 1, blankPos[1],
-          blankPos[0], blankPos[1]);
+            blankPos[0], blankPos[1]);
           blankPos[0] += 1;
           solveQueue[i] = 3;
-        break;
-        
+          break;
+
         case 3:
-          if (blankPos[0] == 0){
+          if (blankPos[0] == 0) {
             --i;
             break;
           }
           swap(blankPos[0] - 1, blankPos[1],
-          blankPos[0], blankPos[1]);
+            blankPos[0], blankPos[1]);
           blankPos[0] -= 1;
           solveQueue[i] = 2;
-        break;
-        
+          break;
+
         default:
           console.log('How can you come here?');
-        break;
+          break;
       }
     }
 
@@ -254,13 +266,13 @@ $(function(){
     solvePos[1] = blankPos[1];
   }
 
-  $('.solve').click( function() {
+  $('.solve').click(function () {
     if (!isStart) return;
 
     clearInterval(timerID);
     $('.stop').removeClass('stop');
-    setTimeout(()=>{this.className = "start solve stop"},
-    50);
+    setTimeout(() => { this.className = "start solve stop" },
+      50);
     infoBar.textContent = "Solving for you...";
     infoBar.className = "shown";
     isStart = false;
@@ -274,55 +286,55 @@ $(function(){
     blankPos[0] = solvePos[0];
     refresh();
     var i = difficulty;
-    timerID = setInterval(()=>{
-      switch(solveQueue[--i]) {
+    timerID = setInterval(() => {
+      switch (solveQueue[--i]) {
         case 0:
-        swap(blankPos[0], blankPos[1] + 1,
-        blankPos[0], blankPos[1]);
-        blankPos[1] += 1;
-      break;
+          swap(blankPos[0], blankPos[1] + 1,
+            blankPos[0], blankPos[1]);
+          blankPos[1] += 1;
+          break;
 
-      case 1:
-        swap(blankPos[0], blankPos[1] - 1,
-        blankPos[0], blankPos[1]);
-        blankPos[1] -= 1;
-      break;
-      
-      case 2:
-        swap(blankPos[0] + 1, blankPos[1],
-        blankPos[0], blankPos[1]);
-        blankPos[0] += 1;
-      break;
-      
-      case 3:
-        swap(blankPos[0] - 1, blankPos[1],
-        blankPos[0], blankPos[1]);
-        blankPos[0] -= 1;
-      break;
-      
-      default:
-        console.log('How can you come here?');
-      break;
+        case 1:
+          swap(blankPos[0], blankPos[1] - 1,
+            blankPos[0], blankPos[1]);
+          blankPos[1] -= 1;
+          break;
+
+        case 2:
+          swap(blankPos[0] + 1, blankPos[1],
+            blankPos[0], blankPos[1]);
+          blankPos[0] += 1;
+          break;
+
+        case 3:
+          swap(blankPos[0] - 1, blankPos[1],
+            blankPos[0], blankPos[1]);
+          blankPos[0] -= 1;
+          break;
+
+        default:
+          console.log('How can you come here?');
+          break;
       }
       refresh();
-      if (i == 0){
+      if (i == 0) {
         $('.stop').removeClass('stop');
         clearInterval(timerID);
-        timerID = setTimeout(()=>{
+        timerID = setTimeout(() => {
           infoBar.textContent = "Solved";
           infoBar.className = "shown";
         }, 800);
         infoBar.className = "hidden";
-        
+
       }
     }, (800 > (60000 / difficulty)) ? (60000 / difficulty) : 800);
   });
 
-  $('.input__field').focus(function(){
+  $('.input__field').focus(function () {
     $('.input').addClass('input--filled');
   });
 
-  $('.input__field').blur(function(){
+  $('.input__field').blur(function () {
     if (this.value == "") {
       $('.input').removeClass('input--filled');
     }
