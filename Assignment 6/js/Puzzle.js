@@ -96,6 +96,10 @@ $(function () {
         '.col' + blankPos[1])[0]);
       break;
 
+      case 13:
+        $('#start').trigger('click');
+      break;
+      
       default:
       break;
     }
