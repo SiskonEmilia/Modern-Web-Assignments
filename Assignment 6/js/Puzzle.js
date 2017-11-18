@@ -275,7 +275,6 @@ $(function(){
     refresh();
     var i = difficulty;
     timerID = setInterval(()=>{
-      console.log(solveQueue[i]);
       switch(solveQueue[--i]) {
         case 0:
         swap(blankPos[0], blankPos[1] + 1,
