@@ -1,5 +1,5 @@
 $(function () {
-  var OL_Action_Root = "http://127.0.0.1:8888";
+  var OL_Action_Root = "http://localhost:8000";
   var userName = $("input[name='username']")[0];
   var stuId = $("input[name='stuid']")[0];
   var telNum = $("input[name='tel']")[0];
@@ -77,7 +77,7 @@ $(function () {
             $('form').addClass('hidden');
             $('.success').addClass('shown');
             setTimeout(function () {
-              window.location.href = "http://127.0.0.1:8888/?username=" + username;
+              window.location.href = OL_Action_Root + '?username=' + username;
             }, 3000);
           }
         },
