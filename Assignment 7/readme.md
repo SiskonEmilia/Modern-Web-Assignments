@@ -26,4 +26,15 @@ node server.js
 1. resolution radio: >= 1080p
 1. runtime: node v9.2.0+
 
+## 更新日志
+
+* Version 0.1
+
+1. 优化了部分界面视觉效果
+1. 更正了部分不合理的错误提示
+
+* Version 0.2
+
+1. 修复了只有用户名重复，但是四个数据都提示已存在的bug
+
 [1]:http://localhost:8000
