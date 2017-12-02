@@ -12,7 +12,7 @@
 node server.js
 ```
 
-然后，通过Chrome浏览器访问127.0.0.1:8888即可开始您的体验。
+然后，通过Chrome浏览器访问 [http://localhost:8000][1] 即可开始您的体验。
 
 ## 亮点
 
@@ -25,3 +25,5 @@ node server.js
 1. Browser: Chrome
 1. resolution radio: >= 1080p
 1. runtime: node v9.2.0+
+
+[1]:http://localhost:8000
