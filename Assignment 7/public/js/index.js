@@ -165,14 +165,14 @@ $(function () {
         setError(3, "Your email address cannot contain strange characters.");
         flag = false;
       }
-      else if (!/^[A-Za-z\d]+([A-Za-z\d.\-_@])+[A-Za-z\d]{2,5}$/
+      else if (!/^[A-Za-z\d]+[A-Za-z\d@.\-_]+[A-Za-z\d]$/
         .test(eMail.value)) {
         setError(3, "Email address cannot begin or end with . _ or -.");
         flag = false;
       }
       else if (!/^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,5}$/
         .test(eMail.value)) {
-        setError(3, "Your email format is not correct");
+        setError(3, "No or too many '@', or incorrect host name is included.");
         flag = false;
       }
       else {
