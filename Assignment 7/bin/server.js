@@ -111,7 +111,8 @@ function createUser(username, stuid, tel, mail) {
     "tel": tel,
     "mail": mail
   };
-  console.log('User created! Present user data:\n' + userData);
+  console.log('User created! Present user data:');
+  console.log(userData);
 }
 
 function sendFile(res, path, fileType) {
