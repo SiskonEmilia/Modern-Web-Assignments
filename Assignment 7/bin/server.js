@@ -59,15 +59,15 @@ function sign_req(req, res) {
     var data = querystring.parse(stuInfo);
     var username = data['username'], stuid = data['stuid'],
       tel = data['tel'], email = data['email'];
-    var flag = true;
+    var flag1 = true, flag2 = true, flag3 = true, flag4 = true;
 
     res.write(
-      '{"username": ' + (flag &= checkUser(username)) + ',' +
-      '"stuid": ' + (flag &= checkId(stuid)) + ',' +
-      '"tel": ' + (flag &= checkTel(tel)) + ',' +
-      '"email": ' + (flag &= checkMail(email)) + '}');
+      '{"username": ' + (flag1 &= checkUser(username)) + ',' +
+      '"stuid": ' + (flag2 &= checkId(stuid)) + ',' +
+      '"tel": ' + (flag3 &= checkTel(tel)) + ',' +
+      '"email": ' + (flag4 &= checkMail(email)) + '}');
 
-    if (flag) 
+    if (flag1 && flag2 && flag3 && flag4) 
       createUser(username, stuid, tel, email);
 
     res.end();
@@ -78,28 +78,28 @@ function sign_req(req, res) {
 
 function checkUser(username) {
   for (var i in userData)
-    if (userData[i]['username'] == username)
+    if (userData[i]['username'] === username)
       return false;
   return true;
 }
 
 function checkId(stuid) {
   for (var i in userData)
-    if (userData[i]['stuid'] == stuid)
+    if (userData[i]['stuid'] === stuid)
       return false;
   return true;
 }
 
 function checkTel(tel) {
   for (var i in userData)
-    if (userData[i]['tel'] == tel)
+    if (userData[i]['tel'] === tel)
       return false;
   return true;
 }
 
 function checkMail(mail) {
   for (var i in userData)
-    if (userData[i]['mail'] == mail)
+    if (userData[i]['mail'] === mail)
       return false;
   return true;
 }
