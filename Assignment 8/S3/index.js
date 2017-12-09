@@ -46,7 +46,9 @@ $(function() {
           setTimeout(()=> {
             $(this).children()[0].textContent = "...";
             $(this).children().removeClass('hidden');
-            $('.button.enable').not(this).removeClass('enable').addClass('disable');
+            $('.button.enable').not(this)
+            .children().filter('hidden').parent().removeClass('enable').addClass('disable');
+            $(this).removeClass('disable').addClass('enable');
           }, 1);        
         },
         success: function (data) {
