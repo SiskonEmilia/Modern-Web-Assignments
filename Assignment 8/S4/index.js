@@ -87,11 +87,11 @@ $(function() {
 
   $('.apb').click(function() {
     var i = 1, temp = '', str = '', buttons = $('.button.enable');
-    
-    $('.messageBoard')[0].innerHTML = '';
 
     if (buttons.length != 5)
       return;
+
+    $('.messageBoard')[0].innerHTML = '';
 
     while (str.length != 5) {
       temp = parseInt(Math.round(Math.random() * 4)) + '';
