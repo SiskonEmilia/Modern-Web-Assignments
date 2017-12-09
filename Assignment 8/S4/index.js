@@ -3,9 +3,10 @@ $(function() {
     $('.unread').addClass('hidden');
     $('#info-bar').removeClass('enable').addClass('disable');
     $('.result').addClass('hidden');
-    $('.button').removeClass('disable').addClass('enable').children().each(function(){
+    $('.button').removeClass('disable').addClass('enable').children().each(function () {
       this.textContent = '';
     });
+    $('.messageBoard')[0].textContent = '';
   };
 
   function ingameInit() {
@@ -80,9 +81,15 @@ $(function() {
     }
   });
 
+  function displayMsg(msg) {
+    $('.messageBoard')[0].innerHTML = msg;
+  }
+
   $('.apb').click(function() {
     var i = 1, temp = '', str = '', buttons = $('.button.enable');
     
+    $('.messageBoard')[0].innerHTML = '';
+
     if (buttons.length != 5)
       return;
 
@@ -92,6 +99,13 @@ $(function() {
         str += temp;
       }
     }
+
+    displayMsg( 'Order: <br>' + 
+    str.charAt(0) + ' ' +
+    str.charAt(1) + ' ' +
+    str.charAt(2) + ' ' +
+    str.charAt(3) + ' ' +
+    str.charAt(4));
 
     $(document).on('ajaxComplete',function () {
       if (i != 5){

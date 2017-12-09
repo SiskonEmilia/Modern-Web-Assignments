@@ -128,6 +128,15 @@ html, body{
   font-size: 15pt;
 }
 
+#messagebox {
+  position: absolute;
+  width: 120px;
+  height: 200px;
+  color: gray;
+  margin: 0 auto;
+  transform: translateY(-340px);
+}
+
 /*ring of button*/
 #control-ring{
   position: absolute;

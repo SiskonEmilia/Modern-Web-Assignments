@@ -6,7 +6,8 @@ $(function () {
     $('.button').removeClass('disable').addClass('enable').children().each(function () {
       this.textContent = '';
     });
-    $('.messageBoard')[0].textContent = '';
+    $('.messageBoard')[0].innerHTML = '';
+    $('#messagebox')[0].innerHTML = '';
   };
 
 
@@ -163,7 +164,12 @@ $(function () {
   }
 
   function displayMsg(msg) {
-    $('.messageBoard')[0].textContent = msg;
+    $('.messageBoard')[0].innerHTML = msg;
+    addToMsg(msg);
+  }
+
+  function addToMsg(msg) {
+    $('#messagebox')[0].innerHTML += msg + '<br>';
   }
 
   function getHandler(index) {
@@ -197,12 +203,22 @@ $(function () {
     if ($('.button.enable').length != 5)
       return;
 
+    $('.messageBoard')[0].innerHTML = '';
+    $('#messagebox')[0].innerHTML = '';
+
     while (handles.length != 5) {
       temp = Math.round(Math.random() * 4) + '';
       if (handles.indexOf(temp) == -1) {
         handles += temp;
       }
     }
+
+    displayMsg( 'Order: <br>' + 
+    handles.charAt(0) + ' ' +
+    handles.charAt(1) + ' ' +
+    handles.charAt(2) + ' ' +
+    handles.charAt(3) + ' ' +
+    handles.charAt(4));
 
     handles += 'x';
     handleCaller(undefined, 0, handles);
@@ -232,7 +248,6 @@ $(function () {
           if ($('.enable').length == $('.unread').not('.hidden').length) {
             $('.unread').addClass('hidden');
             $('.result').addClass('hidden');
-            $('.messageBoard')[0].textContent = '';
           }
           setTimeout(() => {
             $(this).children()[0].textContent = "...";
