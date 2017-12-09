@@ -48,10 +48,9 @@ $(function () {
           displayMsg("这是个天大的秘密");
          
           if (handles.length == 0)
-            bubbleHandler(currentSum + $('.mask span')[0].textContent * 1);
+           return;
           else
-            getHandler(handles.charAt(0))(currentSum + $('.mask span')[0].textContent * 1,
-              handles.substr(1), callback);
+            callback(undefined, currentSum + $('.mask span')[0].textContent * 1, handles);
         }
       });
   }
@@ -72,10 +71,9 @@ $(function () {
           displayMsg("我不知道");
          
           if (handles.length == 0)
-            bubbleHandler(currentSum + $('.history span')[0].textContent * 1);
+            return;
           else
-            getHandler(handles.charAt(0))(currentSum + $('.history span')[0].textContent * 1,
-              handles.substr(1), callback);
+          callback(undefined, currentSum + $('.history span')[0].textContent * 1, handles);
         }
       });
   }
@@ -96,10 +94,9 @@ $(function () {
           displayMsg("你不知道");
          
           if (handles.length == 0)
-            bubbleHandler(currentSum + $('.message span')[0].textContent * 1);
+            return;
           else
-            getHandler(handles.charAt(0))(currentSum + $('.message span')[0].textContent * 1,
-              handles.substr(1), callback);
+            callback(undefined, currentSum + $('.message span')[0].textContent * 1, handles);
         }
       });
   }
@@ -119,10 +116,9 @@ $(function () {
          
           displayMsg("他不知道");
           if (handles.length == 0)
-            bubbleHandler(currentSum + $('.setting span')[0].textContent * 1);
+            return;
           else
-            getHandler(handles.charAt(0))(currentSum + $('.setting span')[0].textContent * 1,
-              handles.substr(1), callback);
+            callback(undefined, currentSum + $('.setting span')[0].textContent * 1, handles);
         }
       });
   }
@@ -143,17 +139,27 @@ $(function () {
           displayMsg("才怪");
          
           if (handles.length == 0)
-            bubbleHandler(currentSum + $('.sign span')[0].textContent * 1);
+            return;
           else
-            getHandler(handles.charAt(0))(currentSum + $('.sign span')[0].textContent * 1,
-              handles.substr(1), callback);
+            callback(undefined, currentSum + $('.sign span')[0].textContent * 1, handles);
         }
       });
   }
 
-  function bubbleHandler(currentSum) {
+  function bubbleHandler(currentSum, handles, callback) {
     $('#info-bar').click();
-    displayMsg('楼主异步调用战斗力感人，目测不超过' + currentSum);
+    if (Math.round(Math.random()) == 0) {
+      //error here   
+      callback({
+        "currentSum": currentSum,
+        "message": '楼主异步调用战斗力超强，目测不低于' + currentSum
+      }, null, handles);
+    }
+    else {
+      //normal here
+      displayMsg('楼主异步调用战斗力感人，目测不超过' + currentSum);
+      callback(undefined, currentSum, handles);
+    }
   }
 
   function displayMsg(msg) {
@@ -172,6 +178,8 @@ $(function () {
         return DHandler;
       case '4':
         return EHandler;
+      case 'x':
+        return bubbleHandler;
     }
   }
 
@@ -195,6 +203,8 @@ $(function () {
         handles += temp;
       }
     }
+
+    handles += 'x';
     handleCaller(undefined, 0, handles);
   });
 
@@ -205,7 +215,7 @@ $(function () {
     }
    
     if (handles.length == 0)
-      bubbleHandler(currentSum);
+      return;
     else
       getHandler(handles.charAt(0))(currentSum, handles.substr(1), handleCaller);
   }
