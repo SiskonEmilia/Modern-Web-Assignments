@@ -238,7 +238,7 @@ $(function () {
             $(this).children()[0].textContent = "...";
             $(this).children().removeClass('hidden');
             $('.button.enable').not(this).removeClass('enable').addClass('disable');
-          }, 50);
+          }, 1);
         },
         success: function (data) {
           if (!$(this).children().hasClass('hidden')) {
