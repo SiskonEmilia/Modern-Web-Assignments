@@ -49,7 +49,7 @@ $(function() {
             $('.button.enable').not(this)
             .children().filter('hidden').parent().removeClass('enable').addClass('disable');
             $(this).removeClass('disable').addClass('enable');
-          }, 1);        
+          }, 0);        
         },
         success: function (data) {
           if (!$(this).children().hasClass('hidden')) {
@@ -62,6 +62,7 @@ $(function() {
               for (var i = 0; i < datas.length; ++i) {
                 if (datas[i].textContent == '...')
                   return;
+                  
                 result[0].textContent = result[0].textContent * 1 + datas[i].textContent * 1;
               }
               result.parent().removeClass('disable').addClass('enable');
@@ -87,6 +88,7 @@ $(function() {
     
     $(document).on('ajaxComplete',function () {
       ++i;
+
       if (i == 5) {
         $('#info-bar').click();
         $(document).off('ajaxComplete');
