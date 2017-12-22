@@ -1,0 +1,19 @@
+{
+  "name": "assignment_9",
+  "version": "1.0.0",
+  "description": "a simple implemention of signing in",
+  "main": "./bin/index.js",
+  "scripts": {
+    "test": "node ./bin/index.js"
+  },
+  "keywords": [
+    "homework"
+  ],
+  "author": "SiskonEmilia",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.7"
+  }
+}
