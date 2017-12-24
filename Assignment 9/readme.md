@@ -13,7 +13,7 @@ npm install
 ```
 
 以安装依赖关系  
-接着，在／database目录下执行
+接着，在/database目录下执行
 
 ```shell
 mongod --dbpath .
