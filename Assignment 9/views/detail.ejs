@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Detail of <%= user.username %></title>
+  <link rel="stylesheet" href="/css/register.css">
+</head>
+
+<body>
+  <script src="/js/jquery-3.2.1.min.js"></script>
+  <script src="/js/detail.js"></script>
+
+  <div class="container DetailContainer">
+    <% if (errorMsg != '') { %>
+      <div class="formTitle DetailTitle errorDetail">
+          <%= errorMsg %>
+    <% } else { %>
+      <div class="formTitle DetailTitle">
+          <%= user.username %>
+    <% } %>
+    </div>
+
+
+    <div class="boarder">Username:</div>
+    <div class="data"><%= user.username %></div>
+    <div class="boarder">StuID:</div>
+    <div class="data"><%= user.stuid %></div>
+    <div class="boarder">Tel:</div>
+    <div class="data"><%= user.tel %></div>
+    <div class="boarder">Email:</div>
+    <div class="data"><%= user.email %></div>
+
+    <button class="radiusButton logout">Logout</button>
+
+    <div class="success hidden">Logout Succeeded!</div>
+  </div>
+
+</body>
+
+</html>

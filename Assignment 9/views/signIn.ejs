@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Emilia's Cafe</title>
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+  <script src="/js/jquery-3.2.1.min.js"></script>
+  <script src="/js/signin.js"></script>
+
+  <div class="container">
+    <div class="formTitle">
+      Sign In
+    </div>
+    <form method="post">
+      <span class="input">
+        <input class="input__field" type="text" id="input-1" name="username" spellcheck="false" />
+        <label class="input__label" for="input-1">
+          <span class="input__label-content">Username:</span>
+        </label>
+      </span>
+      <div class="msg">
+        <span class="msgWords">123</span>
+      </div>
+
+      <span class="input">
+        <input class="input__field" type="password" id="input-5" name="password" spellcheck="false" />
+        <label class="input__label" for="input-5">
+          <span class="input__label-content">Password:</span>
+        </label>
+      </span>
+      <div class="msg">
+        <span class="msgWords">123</span>
+      </div>
+
+      <div class="buttons">
+        <div class="radiusButton signup">SignUp</div>
+        <button class="radiusButton submit">SignIn</button>
+      </div>
+    </form>
+
+    <div class="success hidden signinB">Sign In Succeeded!</div>
+  </div>
+
+</body>
+
+</html>

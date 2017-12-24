@@ -1,4 +1,9 @@
-var mongodb = require('./db');
+var mongoCilent = require('./db');
+// Connection URL
+const url = 'mongodb://localhost:27017';
+// Database Name
+const dbName = 'assignment9';
+const assert = require('assert');
 
 function User(user) {
     this.username = user.username;
@@ -20,85 +25,112 @@ User.prototype.save = function (callback) {
         stuid: this.stuid
     };
 
-    mongodb.collection('users', function (err, collection) {
-        if (err) {
-            return callback(err);
-        }
-        collection.insert(user, { safe: true }, function (err, user) {
+    mongoCilent.connect(url, function(err, client) {
+        assert.equal(null, err);
+        console.log("Connected successfully to server");
+    
+        const db = client.db(dbName);
+
+        db.collection('users', function (err, collection) {
             if (err) {
                 return callback(err);
             }
-            callback(null, user[0]);
+
+            collection.insertOne(user, function (err, users) {
+                if (err) {
+                    return callback(err);
+                }
+                callback(null, users.ops[0]);
+            });
         });
+    
+        client.close();
     });
 };
 
 User.get = function (user, callback) {
-    console.log(user);
-    mongodb.collection('user', function (err, collection) {
-        console.log('1+');
-        if (err) {
-            console.log(err);
-            return callback(err);
-        }
-        console.log('1*');
-        var found, repeated = {
-            username: false,
-            stuid: false,
-            email: false,
-            tel: false
-        };
-        console.log('1*6');
-        console.log(collection.findOne);
-        collection.findOne({
-            username: user.username
-        }, function (err, user) {
-            if (err) {
-                console.log('1*5');
-                return callback(err);
-            }
-            if (user) {
-                found = user;
-                repeated.username = true;
-            }
-        });
-        console.log('1*5');
-        collection.findOne({
-            email: user.email
-        }, function (err, user) {
+
+    mongoCilent.connect(url, function(err, client) {
+        assert.equal(null, err);
+      
+        const db = client.db(dbName);
+
+        db.collection('users', function (err, collection) {
             if (err) {
                 return callback(err);
             }
-            if (user) {
-                found = user;
-                repeated.email = true;
-            }
-        });
-        console.log('1*4');
-        collection.findOne({
-            tel: user.tel
-        }, function (err, user) {
-            if (err) {
-                return callback(err);
-            }
-            if (user) {
-                found = user;
-                repeated.tel = true;
-            }
-        });
-        console.log('1*3');
-        collection.findOne({
-            stuid: user.stuid
-        }, function (err, user) {
-            if (err) {
-                return callback(err);
-            }
-            if (user) {
-                found = user;
-                repeated.stuid = true;
-            }
-        });
-        console.log('1*2');
-        callback(null, found, repeated);
-    })
+            console.log('finding user:')
+            console.log(user);
+            var found, repeated = {
+                username: false,
+                stuid: false,
+                email: false,
+                tel: false
+            };
+    
+            collection.findOne({
+                username: user.username
+            }, function (err, userFound) {
+                if (err) {
+                    client.close();
+                    return callback(err);
+                }
+                console.log('username found');
+                if (userFound) {
+                    found = userFound;
+                    repeated.username = true;
+                }
+
+                collection.findOne({
+                    email: user.email
+                }, null, function (err, userFound) {
+                    if (err) {
+                        client.close();
+                        return callback(err);
+                    }
+    
+                    console.log('email found');
+                    if (userFound) {
+                        found = userFound;
+                        repeated.email = true;
+                    }
+
+                    collection.findOne({
+                        tel: user.tel
+                    }, null, function (err, userFound) {
+                        if (err) {
+                            client.close();
+                            return callback(err);
+                        }
+                        console.log('tel found');
+                        if (userFound) {
+                            found = userFound;
+                            repeated.tel = true;
+                        }
+
+                        collection.findOne({
+                            stuid: user.stuid
+                        }, null, function (err, userFound) {
+                            if (err) {
+                                client.close();
+                                return callback(err);
+                            }
+                            console.log('stuid found');
+                            if (userFound) {
+                                found = userFound;
+                                repeated.stuid = true;
+                            }
+                            callback(null, found, repeated);
+                            client.close();
+                        });
+                    });
+
+                });
+
+            });
+            
+        })
+        
+      });
+    
 }
