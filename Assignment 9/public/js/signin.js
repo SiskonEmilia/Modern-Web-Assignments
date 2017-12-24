@@ -1,5 +1,5 @@
 $(function () {
-  var OL_Action_Root = location.host;
+  var OL_Action_Root = "http://" + location.host;
   var userName = $("input[name='username']")[0];
   var passWord = $("input[name='password']")[0];
   var inputs = $('.input__label');

@@ -1,5 +1,5 @@
 $(function () {
-  var OL_Action_Root = location.host;
+  var OL_Action_Root = "http://" + location.host;
   $('.logout').click(function () {
     $.ajax({
         url: OL_Action_Root + "/req_logout",
