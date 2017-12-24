@@ -39,7 +39,7 @@ node signin
 1. Browser: Chrome ／ Safari
 1. resolution radio: >= 1080p
 1. size of screen >= 13'3
-1. runtime: node v9.2.0+
+1. runtime: node-v9.2.0+, mongodb-v3.0+
 
 ## 更新日志
 
